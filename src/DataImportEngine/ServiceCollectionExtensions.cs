@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using DataImportEngine.Infrastructure.Manage;
 using DataImportEngine.Application.Commands;
 using FluentValidation;
+using DataImportEngine.Application.Contracts;
+using DataImportEngine.Application.Handlers;
 
 namespace DataImportEngine
 {
@@ -21,6 +23,7 @@ namespace DataImportEngine
                .AddSingleton<IImportDataRepository<List<SoftwareAdviceDto>>, JSONRepository>()
                .AddSingleton<IImportDataRepository<List<CapterraDto>>, YMLRepository>()
                .AddSingleton<IProductRepository<ProductDto>, ProductRepository>()
-               .AddSingleton<IValidator<ImportCommand>, ImportCommandValidator>();
+               .AddSingleton<IValidator<ImportCommand>, ImportCommandValidator>()
+               .AddScoped<IImportCommandHandler, ImportCommandHandler>();
     }
 }
