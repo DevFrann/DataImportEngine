@@ -19,7 +19,7 @@ SELECT first_name, last_name FROM users;
 
 1. Select users whose id is either 3,2 or 4
 - Please return at least: all user fields
-SELECT *
+--SELECT *
 FROM users
 WHERE users.id IN(3,2,4);
 
