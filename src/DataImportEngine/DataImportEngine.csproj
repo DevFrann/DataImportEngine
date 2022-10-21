@@ -14,12 +14,19 @@
     <Folder Include="Application\Contracts\" />
     <Folder Include="Application\Commands\" />
     <Folder Include="Data\feed-products\" />
-    <Folder Include="Domain\DTOs\" />
-    <Folder Include="Domain\Enums\" />
     <Folder Include="Common\" />
     <Folder Include="Infrastructure\Import\Repositories\" />
     <Folder Include="Infrastructure\Import\Serializers\" />
     <Folder Include="Infrastructure\Manage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\feed-products\capterra.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\feed-products\softwareadvice.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
