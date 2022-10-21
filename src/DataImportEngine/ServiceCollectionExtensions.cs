@@ -9,6 +9,7 @@ using DataImportEngine.Application.Commands;
 using FluentValidation;
 using DataImportEngine.Application.Contracts;
 using DataImportEngine.Application.Handlers;
+using DataImportEngine.Application.Services;
 
 namespace DataImportEngine
 {
@@ -17,13 +18,14 @@ namespace DataImportEngine
         private static IDeserializer CreateYamlDeserializer() => new DeserializerBuilder().WithNamingConvention(CamelCaseNamingConvention.Instance)
                                                                   .Build();
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
-    => services.AddSingleton(CreateYamlDeserializer())
+        => services.AddSingleton(CreateYamlDeserializer())
                .AddSingleton<IYMLSerializer, YMLSerializer>()
                .AddSingleton<IJSONSerializer, JSONSerializer>()
                .AddSingleton<IImportDataRepository<List<SoftwareAdviceDto>>, JSONRepository>()
                .AddSingleton<IImportDataRepository<List<CapterraDto>>, YMLRepository>()
                .AddSingleton<IProductRepository<ProductDto>, ProductRepository>()
                .AddSingleton<IValidator<ImportCommand>, ImportCommandValidator>()
-               .AddScoped<IImportCommandHandler, ImportCommandHandler>();
+               .AddScoped<IImportCommandHandler, ImportCommandHandler>()
+               .AddSingleton<IImportDataService, ImportDataService>();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DataImportEngine.Application.Commands;
 using DataImportEngine.Application.Contracts;
+using DataImportEngine.Application.Mappers;
 using DataImportEngine.Domain.DTOs;
 using DataImportEngine.Domain.Enums;
 using DataImportEngine.Infrastructure.Import.Repositories;
@@ -50,8 +51,8 @@ namespace DataImportEngine.Application.Handlers
 
             result.Products = command.Type switch
             {
-                OriginTypeEnum.Capterra => (await _ymlRepository.ReadDataAsync(command.Data)).Select(ProductMapper.MapDataFromYML).ToList(),
-                OriginTypeEnum.Softwareadvice => (await _jsonRepository.ReadDataAsync(command.Data)).Select(ProductMapper.MapDataFromJSON).ToList(),
+                OriginTypeEnum.Capterra => (await _ymlRepository.ReadDataAsync(command.Data)).Select(DataMapper.MapDataFromYML).ToList(),
+                OriginTypeEnum.Softwareadvice => (await _jsonRepository.ReadDataAsync(command.Data)).Select(DataMapper.MapDataFromJSON).ToList(),
                 _ => throw new NotImplementedException()
 
             };
