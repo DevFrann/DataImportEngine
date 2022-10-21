@@ -27,8 +27,7 @@ SELECT USU.first_name AS NAME, USU.last_name AS LAST_NAME, (SELECT COUNT(listing
 
 3. Show the same count as before but only if they have at least ONE premium listing
 - Please return at least: first_name, last_name, basic, premium
-SELECT USU.first_name AS NAME, USU.last_name AS LAST_NAME, (SELECT COUNT(listings.status) FROM listings INNER JOIN users ON listings.user_id = users.id WHERE listings.status = 2 AND users.id = USU.id) BASIC, (SELECT COUNT(listings.status) FROM listings INNER JOIN users ON listings.user_id = users.id WHERE listings.status = 3 AND users.id = USU.id) PREMIUM FROM users USU WHERE USU.status = 2;
-
+SELECT USU.first_name AS NAME, USU.last_name AS LAST_NAME, (SELECT COUNT(listings.status) FROM listings INNER JOIN users ON listings.user_id = users.id WHERE listings.status = 2 AND users.id = USU.id) BASIC, (SELECT COUNT(listings.status) FROM listings INNER JOIN users ON listings.user_id = users.id WHERE listings.status = 3 AND users.id = USU.id) PREMIUM FROM users USU WHERE USU.status = 2 AND (SELECT COUNT(listings.status) FROM listings INNER JOIN users ON listings.user_id = users.id WHERE listings.status = 3 AND users.id = USU.id) > 0;
 
 4. How much revenue has each active vendor made in 2013
 - Please return at least: first_name, last_name, currency, revenue
