@@ -16,8 +16,12 @@
     <Folder Include="Data\feed-products\" />
     <Folder Include="Common\" />
     <Folder Include="Infrastructure\Import\Repositories\" />
-    <Folder Include="Infrastructure\Import\Serializers\" />
     <Folder Include="Infrastructure\Manage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="YamlDotNet" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>
