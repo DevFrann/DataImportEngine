@@ -5,6 +5,8 @@ using DataImportEngine.Infrastructure.Import.Serializers;
 using DataImportEngine.Domain.DTOs;
 using Microsoft.Extensions.DependencyInjection;
 using DataImportEngine.Infrastructure.Manage;
+using DataImportEngine.Application.Commands;
+using FluentValidation;
 
 namespace DataImportEngine
 {
@@ -18,6 +20,7 @@ namespace DataImportEngine
                .AddSingleton<IJSONSerializer, JSONSerializer>()
                .AddSingleton<IImportDataRepository<List<SoftwareAdviceDto>>, JSONRepository>()
                .AddSingleton<IImportDataRepository<List<CapterraDto>>, YMLRepository>()
-               .AddSingleton<IProductRepository<ProductDto>, ProductRepository>();
+               .AddSingleton<IProductRepository<ProductDto>, ProductRepository>()
+               .AddSingleton<IValidator<ImportCommand>, ImportCommandValidator>();
     }
 }
