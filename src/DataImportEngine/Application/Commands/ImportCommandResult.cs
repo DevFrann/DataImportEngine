@@ -9,6 +9,7 @@ namespace DataImportEngine.Application.Commands
 
         public ImportCommandResult()
         {
+            _errorMessages = new List<string>();
             Products = new List<ProductDto>();
         }
 

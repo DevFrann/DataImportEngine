@@ -14,6 +14,6 @@ namespace DataImportEngine.Application.Commands
         public string Origin { get; set; }
         public string Data { get; set; }
         public OriginTypeEnum Type => Origin.ToUpperInvariant().Contains(Constants.CAPTERRA_ORIGIN_NAME) ? OriginTypeEnum.Capterra : OriginTypeEnum.Softwareadvice; //Future will be a switch maybe
-        public bool IsValid() => Origin != null && Data != null;
+        public bool IsValid() => !string.IsNullOrEmpty(Origin) && !string.IsNullOrEmpty(Data);
     }
 }
