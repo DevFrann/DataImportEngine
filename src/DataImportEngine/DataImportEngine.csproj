@@ -11,10 +11,7 @@
     <Folder Include="Application\Handlers\" />
     <Folder Include="Application\Mappers\" />
     <Folder Include="Application\Services\" />
-    <Folder Include="Application\Contracts\" />
-    <Folder Include="Application\Commands\" />
     <Folder Include="Data\feed-products\" />
-    <Folder Include="Common\" />
   </ItemGroup>
 
   <ItemGroup>
