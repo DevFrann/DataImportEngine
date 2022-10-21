@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DataImportEngine": {
+      "commandName": "Project",
+      "commandLineArgs": "capterra\r\ncapterra.yaml",
+      //"commandLineArgs": "softwareadvice\r\nsoftwareadvice.json"
+    }
+  }
+}
