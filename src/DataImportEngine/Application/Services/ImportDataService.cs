@@ -49,7 +49,8 @@ namespace DataImportEngine.Application.Services
             }
             catch (Exception ex)
             {
-                throw ex;
+                LogErrors(new List<string> { ex.Message });
+                throw;
             }
         }
 
