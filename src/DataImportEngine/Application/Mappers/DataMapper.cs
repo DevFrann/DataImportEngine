@@ -16,7 +16,7 @@ namespace DataImportEngine.Application.Mappers
             };
         }
 
-        public static ProductDto MapDataFromYML(CapterraDto data)
+        public static ProductDto MapDataFromYAML(CapterraDto data)
         {
             return new ProductDto
             {

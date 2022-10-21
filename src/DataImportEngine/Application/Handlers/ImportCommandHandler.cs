@@ -12,22 +12,22 @@ namespace DataImportEngine.Application.Handlers
     {
         private readonly IValidator<ImportCommand> _validator;
         private readonly IImportDataRepository<List<SoftwareAdviceDto>> _jsonRepository;
-        private readonly IImportDataRepository<List<CapterraDto>> _ymlRepository;
+        private readonly IImportDataRepository<List<CapterraDto>> _yamlRepository;
         //private readonly IProductRepository<ProductDto> _productRepository;
 
         public ImportCommandHandler(IValidator<ImportCommand> validator,
                                     IImportDataRepository<List<SoftwareAdviceDto>> jsonRepository,
-                                    IImportDataRepository<List<CapterraDto>> ymlRepository)
+                                    IImportDataRepository<List<CapterraDto>> yamlRepository)
         //,IProductRepository<ProductDto> productRepository)
         {
             ArgumentNullException.ThrowIfNull(validator, nameof(validator));
             ArgumentNullException.ThrowIfNull(jsonRepository, nameof(jsonRepository));
-            ArgumentNullException.ThrowIfNull(ymlRepository, nameof(ymlRepository));
+            ArgumentNullException.ThrowIfNull(yamlRepository, nameof(yamlRepository));
             //ArgumentNullException.ThrowIfNull(productRepository, nameof(productRepository));
 
             _validator = validator;
             _jsonRepository = jsonRepository;
-            _ymlRepository = ymlRepository;
+            _yamlRepository = yamlRepository;
             //_productRepository = productRepository;
         }
 
@@ -51,7 +51,7 @@ namespace DataImportEngine.Application.Handlers
 
             result.Products = command.Type switch
             {
-                OriginTypeEnum.Capterra => (await _ymlRepository.ReadDataAsync(command.Data)).Select(DataMapper.MapDataFromYML).ToList(),
+                OriginTypeEnum.Capterra => (await _yamlRepository.ReadDataAsync(command.Data)).Select(DataMapper.MapDataFromYAML).ToList(),
                 OriginTypeEnum.Softwareadvice => (await _jsonRepository.ReadDataAsync(command.Data)).Select(DataMapper.MapDataFromJSON).ToList(),
                 _ => throw new NotImplementedException()
 

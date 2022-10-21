@@ -66,7 +66,7 @@ namespace DataImportEngine.Application.Services
 
             if (!Regex.IsMatch(dataPath, @"(.*?)\.(yaml|json)$"))
             {
-                error = $"File not format not allowed: {dataPath}, allowed formats are .yml or .json";
+                error = $"File not format not allowed: {dataPath}, allowed formats are .yaml or .json";
                 AddValidationError(error);
             }
 
