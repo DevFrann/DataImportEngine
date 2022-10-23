@@ -1,8 +1,8 @@
 ﻿namespace DataImportEngine.Domain.DTOs
 {
-    public class CapterraDto
+    public class CapterraEntity
     {
-        public CapterraDto()
+        public CapterraEntity()
         {
         }
 

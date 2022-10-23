@@ -5,9 +5,9 @@ namespace DataImportEngine.Application.Mappers
 {
     public static class DataMapper
     {
-        public static ProductDto MapDataFromJSON(SoftwareAdviceDto data)
+        public static ProductEntity MapDataFromJSON(SoftwareAdviceEntity data)
         {
-            return new ProductDto
+            return new ProductEntity
             {
                 Categories = data.Categories,
                 Name = data.Title,
@@ -16,9 +16,9 @@ namespace DataImportEngine.Application.Mappers
             };
         }
 
-        public static ProductDto MapDataFromYAML(CapterraDto data)
+        public static ProductEntity MapDataFromYAML(CapterraEntity data)
         {
-            return new ProductDto
+            return new ProductEntity
             {
                 Categories = data.Categories,
                 Name = data.Name,

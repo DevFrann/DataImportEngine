@@ -3,7 +3,7 @@ using DataImportEngine.Infrastructure.Import.Serializers;
 
 namespace DataImportEngine.Infrastructure.Import.Repositories
 {
-    public class YAMLRepository : IImportDataRepository<List<CapterraDto>>
+    public class YAMLRepository : IImportDataRepository<List<CapterraEntity>>
     {
         private readonly IYAMLSerializer _yamlSerializer;
 
@@ -13,9 +13,9 @@ namespace DataImportEngine.Infrastructure.Import.Repositories
             _yamlSerializer = yamlSerializer;
         }
 
-        public Task<List<CapterraDto>> ReadDataAsync(string data)
+        public Task<List<CapterraEntity>> ReadDataAsync(string data)
         {
-            return _yamlSerializer.DeserializeAsync<List<CapterraDto>>(data);
+            return _yamlSerializer.DeserializeAsync<List<CapterraEntity>>(data);
         }
     }
 }

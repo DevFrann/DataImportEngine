@@ -9,10 +9,16 @@ Moq - Library for resolve services as moqs
 FluentAssertions - Library for testing asserts
 
 ## Run app locally
-Console Command:
-dotnet run capterra capterra.yaml
-OR
-dotnet run softwareadvice softwareadvice.json
+Run App:
+1. Go to DataImportEngine\src\DataImportEngine folder
+2. Open a cmd inside the selected folder
+3. Write command dotnet run capterra capterra.yaml in console
+OR command dotnet run softwareadvice softwareadvice.json
+
+Run Tests
+1. Go to root path DataImportEngine
+2. Open a cmd inside the selected folder
+3. Write command dotnet test
 
 ## Architectural improvements
 From my point of view, the best architecture that I would use for the management of importing products from different files would be to first enable a space in a Blob Storage where the files would be left.

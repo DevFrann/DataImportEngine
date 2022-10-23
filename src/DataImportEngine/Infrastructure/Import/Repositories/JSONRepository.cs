@@ -3,7 +3,7 @@ using DataImportEngine.Infrastructure.Import.Serializers;
 
 namespace DataImportEngine.Infrastructure.Import.Repositories
 {
-    public class JSONRepository : IImportDataRepository<List<SoftwareAdviceDto>>
+    public class JSONRepository : IImportDataRepository<List<SoftwareAdviceEntity>>
     {
         private readonly IJSONSerializer _jsonSerializer;
 
@@ -13,9 +13,9 @@ namespace DataImportEngine.Infrastructure.Import.Repositories
             _jsonSerializer = jsonSerializer;
         }
 
-        public Task<List<SoftwareAdviceDto>> ReadDataAsync(string data)
+        public Task<List<SoftwareAdviceEntity>> ReadDataAsync(string data)
         {
-            return _jsonSerializer.DeserializeAsync<List<SoftwareAdviceDto>>(data);
+            return _jsonSerializer.DeserializeAsync<List<SoftwareAdviceEntity>>(data);
         }
     }
 }

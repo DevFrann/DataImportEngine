@@ -2,9 +2,9 @@
 
 namespace DataImportEngine.Domain.DTOs
 {
-    public class SoftwareAdviceDto
+    public class SoftwareAdviceEntity
     {
-        public SoftwareAdviceDto()
+        public SoftwareAdviceEntity()
         {
             Categories = new List<string>();
         }

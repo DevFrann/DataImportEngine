@@ -27,12 +27,12 @@ namespace UnitTests
                 var commandResponse = new ImportCommandResult
                 {
                     Imported = true,
-                    Products = new List<ProductDto> {
-                    new ProductDto {
+                    Products = new List<ProductEntity> {
+                    new ProductEntity {
                         Name = "Freshdesk",
                         Categories = new List<string>{ "Customer Service", "Call Center"},
                         Twitter = "@freshdesk" },
-                    new ProductDto {
+                    new ProductEntity {
                         Name = "Zoho",
                         Categories = new List<string>{ "CRM", "Sales Management"},
                         Twitter = string.Empty }}
@@ -40,7 +40,7 @@ namespace UnitTests
 
                 _importCommandHandlerMock.Setup(p =>
                         p.HandleAsync(It.IsAny<ImportCommand>()))
-                    .ReturnsAsync(commandResponse)
+                    .ReturnsAsync(new ImportCommandResult())
                     .Verifiable();
 
                 var func = async () => await _sut.ExecuteAsync(origin, data);

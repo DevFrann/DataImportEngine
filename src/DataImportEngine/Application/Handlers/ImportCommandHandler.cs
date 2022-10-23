@@ -11,13 +11,13 @@ namespace DataImportEngine.Application.Handlers
     public class ImportCommandHandler : IImportCommandHandler
     {
         private readonly IValidator<ImportCommand> _validator;
-        private readonly IImportDataRepository<List<SoftwareAdviceDto>> _jsonRepository;
-        private readonly IImportDataRepository<List<CapterraDto>> _yamlRepository;
+        private readonly IImportDataRepository<List<SoftwareAdviceEntity>> _jsonRepository;
+        private readonly IImportDataRepository<List<CapterraEntity>> _yamlRepository;
         //private readonly IProductRepository<ProductDto> _productRepository;
 
         public ImportCommandHandler(IValidator<ImportCommand> validator,
-                                    IImportDataRepository<List<SoftwareAdviceDto>> jsonRepository,
-                                    IImportDataRepository<List<CapterraDto>> yamlRepository)
+                                    IImportDataRepository<List<SoftwareAdviceEntity>> jsonRepository,
+                                    IImportDataRepository<List<CapterraEntity>> yamlRepository)
         //,IProductRepository<ProductDto> productRepository)
         {
             ArgumentNullException.ThrowIfNull(validator, nameof(validator));
@@ -66,7 +66,7 @@ namespace DataImportEngine.Application.Handlers
             return result;
         }
 
-        //private Task SaveImportedData(List<ProductModel> products)
+        //private Task SaveImportedData(List<ProductEntity> products)
         //{
         //    products.ForEach(async x => await Task.FromResult(_productRepository.CreateAsync(x)));
         //    return Task.CompletedTask;

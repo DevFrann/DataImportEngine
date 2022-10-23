@@ -2,9 +2,9 @@
 
 namespace DataImportEngine.Infrastructure.Manage
 {
-    public class ProductRepository : IProductRepository<ProductDto>
+    public class ProductRepository : IProductRepository<ProductEntity>
     {
-        public Task CreateAsync(ProductDto entity)
+        public Task CreateAsync(ProductEntity entity)
         {
             throw new NotImplementedException();
         }
@@ -14,17 +14,17 @@ namespace DataImportEngine.Infrastructure.Manage
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ProductDto>> GetAllAsync(int id)
+        public Task<IEnumerable<ProductEntity>> GetAllAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ProductDto> GetAsync(int id)
+        public Task<ProductEntity> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(ProductDto entity)
+        public Task UpdateAsync(ProductEntity entity)
         {
             throw new NotImplementedException();
         }

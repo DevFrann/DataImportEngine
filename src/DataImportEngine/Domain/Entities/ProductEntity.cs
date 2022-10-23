@@ -1,12 +1,12 @@
 ﻿namespace DataImportEngine.Domain.DTOs
 {
-    public class ProductDto
+    public class ProductEntity
     {
-        public ProductDto()
+        public ProductEntity()
         {
         }
 
-        protected ProductDto(Guid id, string name, List<string> categories, string twitter, string origin)
+        protected ProductEntity(Guid id, string name, List<string> categories, string twitter, string origin)
         {
             Id = id;
             Name = name;

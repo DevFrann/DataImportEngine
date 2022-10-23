@@ -21,9 +21,9 @@ namespace DataImportEngine
         => services.AddSingleton(CreateYamlDeserializer())
                .AddSingleton<IYAMLSerializer, YAMLSerializer>()
                .AddSingleton<IJSONSerializer, JSONSerializer>()
-               .AddSingleton<IImportDataRepository<List<SoftwareAdviceDto>>, JSONRepository>()
-               .AddSingleton<IImportDataRepository<List<CapterraDto>>, YAMLRepository>()
-               .AddSingleton<IProductRepository<ProductDto>, ProductRepository>()
+               .AddSingleton<IImportDataRepository<List<SoftwareAdviceEntity>>, JSONRepository>()
+               .AddSingleton<IImportDataRepository<List<CapterraEntity>>, YAMLRepository>()
+               .AddSingleton<IProductRepository<ProductEntity>, ProductRepository>()
                .AddSingleton<IValidator<ImportCommand>, ImportCommandValidator>()
                .AddScoped<IImportCommandHandler, ImportCommandHandler>()
                .AddSingleton<IImportDataService, ImportDataService>();

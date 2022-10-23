@@ -10,10 +10,10 @@ namespace DataImportEngine.Application.Commands
         public ImportCommandResult()
         {
             _errorMessages = new List<string>();
-            Products = new List<ProductDto>();
+            Products = new List<ProductEntity>();
         }
 
-        public List<ProductDto> Products { get; set; }
+        public List<ProductEntity> Products { get; set; }
         public bool Imported { get; set; }
         public bool HasErrors => ErrorMessages.Any();
         public IEnumerable<string> ErrorMessages => _errorMessages;

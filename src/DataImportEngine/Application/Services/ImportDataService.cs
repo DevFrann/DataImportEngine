@@ -22,8 +22,6 @@ namespace DataImportEngine.Application.Services
         {
             try
             {
-                ValidateInputParams(origin, dataPath);
-
                 var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/feed-products", dataPath);
 
                 ValidateExistingFile(filePath);
@@ -54,29 +52,6 @@ namespace DataImportEngine.Application.Services
             }
         }
 
-        private void ValidateInputParams(string origin, string dataPath)
-        {
-            var error = string.Empty;
-
-            if (!Regex.IsMatch(origin, @"^[a-zA-Z0-9]+$"))
-            {
-                error = $"Malformed name for Origin: {origin}, letters allowed only";
-                AddValidationError(error);
-            }
-
-            if (!Regex.IsMatch(dataPath, @"(.*?)\.(yaml|json)$"))
-            {
-                error = $"File not format not allowed: {dataPath}, allowed formats are .yaml or .json";
-                AddValidationError(error);
-            }
-
-            if (!dataPath.Contains(origin))
-            {
-                error = $"Selected origin and path not referenced each other";
-                AddValidationError(error);
-            }
-        }
-
         private void ValidateExistingFile(string filePath)
         {
             if (!File.Exists(filePath))
@@ -101,7 +76,7 @@ namespace DataImportEngine.Application.Services
             errorList.ForEach(Console.WriteLine);
         }
 
-        private void LogImportedData(List<ProductDto> importedData)
+        private void LogImportedData(List<ProductEntity> importedData)
         {
             importedData.ForEach(x => Console.WriteLine($"Importing: Name: {x.Name}; Categories {string.Join(",", x.Categories)}; Twitter: {x.Twitter}"));
         }

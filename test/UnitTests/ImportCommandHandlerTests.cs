@@ -12,8 +12,8 @@ namespace UnitTests
     {
         private readonly ImportCommandHandler _sut;
         private readonly IValidator<ImportCommand> _validator;
-        private readonly Mock<IImportDataRepository<List<SoftwareAdviceDto>>> _jsonRepositoryMock;
-        private readonly Mock<IImportDataRepository<List<CapterraDto>>> _ymlRepositoryMock;
+        private readonly Mock<IImportDataRepository<List<SoftwareAdviceEntity>>> _jsonRepositoryMock;
+        private readonly Mock<IImportDataRepository<List<CapterraEntity>>> _ymlRepositoryMock;
         //private readonly Mock<IProductRepository<ProductDto>> _productRepositoryMock;
         public const string ValidJson = @"
         {
@@ -39,8 +39,8 @@ namespace UnitTests
         public ImportCommandHandlerTests()
         {
             _validator = new ImportCommandValidator();
-            _jsonRepositoryMock = new Mock<IImportDataRepository<List<SoftwareAdviceDto>>>();
-            _ymlRepositoryMock = new Mock<IImportDataRepository<List<CapterraDto>>>();
+            _jsonRepositoryMock = new Mock<IImportDataRepository<List<SoftwareAdviceEntity>>>();
+            _ymlRepositoryMock = new Mock<IImportDataRepository<List<CapterraEntity>>>();
             //_productRepositoryMock = new Mock<IProductRepository<ProductDto>>();
 
             _sut = new ImportCommandHandler(_validator,
@@ -54,16 +54,16 @@ namespace UnitTests
         {
             _jsonRepositoryMock.Setup(p =>
                     p.ReadDataAsync(It.IsAny<string>()))
-                .ReturnsAsync(new List<SoftwareAdviceDto> { new SoftwareAdviceDto { Title = "test", Categories = new List<string> { "Cat1"}, Twitter = "Twitt" } })
+                .ReturnsAsync(new List<SoftwareAdviceEntity> { new SoftwareAdviceEntity { Title = "test", Categories = new List<string> { "Cat1"}, Twitter = "Twitt" } })
                 .Verifiable();
 
             _ymlRepositoryMock.Setup(p =>
                     p.ReadDataAsync(It.IsAny<string>()))
-                .ReturnsAsync(new List<CapterraDto> { new CapterraDto { Name = "test", Tags = "Cat1, Cat2", Twitter = "Twitt" } })
+                .ReturnsAsync(new List<CapterraEntity> { new CapterraEntity { Name = "test", Tags = "Cat1, Cat2", Twitter = "Twitt" } })
                 .Verifiable();
 
             //_productRepositoryMock.Setup(p =>
-            //        p.CreateAsync(It.IsAny<ProductModel>()))
+            //        p.CreateAsync(It.IsAny<ProductEntity>()))
             //    .ReturnsAsync(new ProductDto())
             //    .Verifiable();
         }
